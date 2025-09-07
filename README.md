@@ -54,7 +54,7 @@ portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mlamont8/portfolio-2025
    cd portfolio
    ```
 
@@ -117,10 +117,6 @@ The website uses Tailwind CSS. Customize styles by:
 
 The `dist/` folder contains a single HTML file ready for deployment:
 
-- **AWS S3** - Upload `dist/index.html` and `files/` folder
-- **GitHub Pages** - Push `dist/` contents to `gh-pages` branch
-- **Netlify** - Drag and drop `dist/` folder
-- **Vercel** - Connect repository and set build command to `npm run build`
 
 ### File Structure for Deployment
 
@@ -132,40 +128,14 @@ your-domain.com/
 └── images/ (if you add any)
 ```
 
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
 
 ## 🔧 Technical Details
 
-### Modular Architecture
-
-The website uses a modular approach where each section is a separate HTML file loaded dynamically via JavaScript. This provides:
-
-- **Easy Maintenance** - Update individual sections without touching the main file
-- **Code Organization** - Clear separation of concerns
-- **Reusability** - Sections can be reused across different pages
 
 ### Build Process
 
 The build script (`build.js`) combines all sections into a single HTML file for production deployment, removing the need for JavaScript-based section loading.
 
-### SEO Features
-
-- Schema.org structured data for better search visibility
-- Semantic HTML markup
-- Meta tags for social media sharing
-- Responsive design for mobile-first indexing
-
-## 📞 Contact
-
-**Marimi Lamont Taylor**
-- Email: [your.email@example.com](mailto:your.email@example.com)
-- LinkedIn: [linkedin.com/in/your-linkedin](https://www.linkedin.com/in/your-linkedin)
-- GitHub: [github.com/your-github](https://github.com/your-github)
 
 ## 📄 License
 
