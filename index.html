@@ -26,6 +26,32 @@
           fontFamily: {
             sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "Arial", "sans-serif"],
           },
+          colors: {
+            primary: {
+              50: '#f0f0ff',
+              100: '#e0e0ff',
+              200: '#c7c7ff',
+              300: '#a5a5ff',
+              400: '#7c7cff',
+              500: '#3f37c9',
+              600: '#372fb8',
+              700: '#2f27a6',
+              800: '#271f94',
+              900: '#1f1782',
+            },
+            accent: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          }
         }
       },
       darkMode: 'class'
@@ -61,53 +87,71 @@
   }
   </script>
 </head>
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+<body class="bg-slate-950 text-slate-100 font-sans">
   <!-- Header -->
-  <header class="sticky top-0 z-20 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800/60">
+  <header class="sticky top-0 z-20 backdrop-blur bg-slate-950/90 border-b border-slate-800/60 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="font-semibold tracking-tight text-slate-800 dark:text-slate-100">Marimi Lamont Taylor</a>
-      <nav class="text-sm">
-        <a href="#about" class="px-3 py-2 hover:text-sky-600">About</a>
-        <a href="#experience" class="px-3 py-2 hover:text-sky-600">Experience</a>
-        <a href="#resume" class="px-3 py-2 hover:text-sky-600">Resume</a>
-        <a href="#target-role" class="px-3 py-2 hover:text-sky-600">Target Role</a>
-        <a href="#contact" class="px-3 py-2 hover:text-sky-600">Contact</a>
+      <a href="#home" class="font-semibold tracking-tight text-slate-100">Marimi Lamont Taylor</a>
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-300 hover:text-primary-400 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center text-sm whitespace-nowrap">
+        <a href="#about" class="px-3 py-2 hover:text-primary-400 transition-colors text-slate-300">About</a>
+        <a href="#experience" class="px-3 py-2 hover:text-primary-400 transition-colors text-slate-300">Experience</a>
+        <a href="#resume" class="px-3 py-2 hover:text-primary-400 transition-colors text-slate-300">Resume</a>
+        <a href="#contact" class="px-3 py-2 hover:text-primary-400 transition-colors text-slate-300">Contact</a>
       </nav>
+    </div>
+    <!-- Mobile nav panel -->
+    <div id="mobile-menu" class="md:hidden hidden bg-slate-950 border-t border-slate-800/60">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-1 text-sm">
+        <a href="#about" class="block px-2 py-2 rounded-lg hover:bg-slate-900 text-slate-300 hover:text-primary-400">About</a>
+        <a href="#experience" class="block px-2 py-2 rounded-lg hover:bg-slate-900 text-slate-300 hover:text-primary-400">Experience</a>
+        <a href="#resume" class="block px-2 py-2 rounded-lg hover:bg-slate-900 text-slate-300 hover:text-primary-400">Resume</a>
+        <a href="#target-role" class="block px-2 py-2 rounded-lg hover:bg-slate-900 text-slate-300 hover:text-primary-400">Target Role</a>
+        <a href="#contact" class="block px-2 py-2 rounded-lg hover:bg-slate-900 text-slate-300 hover:text-primary-400">Contact</a>
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 pt-16 pb-10">
-      <div id="hero-content" class="max-w-4xl fade-in">
+  <section id="home" class="relative overflow-hidden bg-slate-950 py-6">
+    <div class="max-w-6xl mx-auto px-4">
+      <div id="hero-content" class="max-w-6xl fade-in">
         <!-- Hero content will be loaded dynamically -->
       </div>
     </div>
   </section>
 
   <!-- Quick Highlights -->
-  <section class="py-10 border-t border-slate-200/60 dark:border-slate-800/60">
+  <section class="py-6 border-t border-slate-800/60 bg-slate-900/50">
     <div id="highlights-content">
       <!-- Highlights content will be loaded dynamically -->
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-14">
+  <section id="about" class="py-6 bg-slate-950">
     <div id="about-content">
       <!-- About content will be loaded dynamically -->
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="py-6">
+  <section class="py-6 bg-slate-900/50">
     <div id="skills-content">
       <!-- Skills content will be loaded dynamically -->
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="py-14">
+  <section id="experience" class="py-6 bg-slate-950">
     <div id="experience-content">
       <!-- Experience content will be loaded dynamically -->
     </div>
@@ -115,7 +159,7 @@
 
 
   <!-- Target Role -->
-  <section id="target-role" class="py-14">
+  <section id="target-role" class="py-6 bg-slate-900/50">
     <div id="target-role-content">
       <!-- Target role content will be loaded dynamically -->
     </div>
@@ -123,14 +167,14 @@
 
 
   <!-- Resume -->
-  <section id="resume" class="py-14 bg-slate-50 dark:bg-slate-900">
+  <section id="resume" class="py-6 bg-slate-950">
     <div id="resume-content">
       <!-- Resume content will be loaded dynamically -->
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-14 border-t border-slate-200/60 dark:border-slate-800/60">
+  <section id="contact" class="py-6 border-t border-slate-800/60 bg-slate-900/50">
     <div id="contact-content">
       <!-- Contact content will be loaded dynamically -->
     </div>
@@ -142,6 +186,22 @@
     // Optional: simple dark-mode based on user preference
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (prefersDark) document.documentElement.classList.add('dark');
+
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('hidden');
+      });
+      // Close menu when a link is clicked
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }));
+    }
   </script>
 </body>
 </html>

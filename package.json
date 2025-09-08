@@ -1,13 +1,37 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Marimi Lamont Taylor's portfolio website",
+  "description": "A personal portfolio website built with HTML and Tailwind CSS.",
+  "main": "index.js",
   "scripts": {
-    "build": "node build.js",
     "dev": "python3 -m http.server 8000",
-    "preview": "python3 -m http.server 8001 -d dist"
+    "build": "node build.js",
+    "preview": "python3 -m http.server 8001 -d dist",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
-  "keywords": ["portfolio", "html", "tailwind"],
+  "keywords": [],
   "author": "Marimi Lamont Taylor",
-  "license": "MIT"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "build.js",
+      "test/build-utils.js",
+      "!node_modules/**"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ]
+  }
 }

@@ -10,12 +10,29 @@ let html = fs.readFileSync('index.html', 'utf8');
 const sections = ['hero', 'highlights', 'about', 'skills', 'experience', 'resume', 'target-role', 'contact'];
 
 sections.forEach(section => {
-  const content = fs.readFileSync(`sections/${section}.html`, 'utf8');
-  html = html.replace(`<div id="${section}-content">`, `<div id="${section}-content">${content}`);
+  try {
+    const content = fs.readFileSync(`sections/${section}.html`, 'utf8');
+    // Replace the entire placeholder block with the section content
+    const blockRegex = new RegExp(
+      `<div\\s+id=\\"${section}-content\\"[^>]*>[\\s\\S]*?<\\/div>`,
+      'i'
+    );
+    html = html.replace(
+      blockRegex,
+      () => `<div id="${section}-content">${content}</div>`
+    );
+  } catch (error) {
+    console.error(`Error processing section ${section}:`, error.message);
+    process.exit(1);
+  }
 });
 
 // Remove the JavaScript that loads sections dynamically
 html = html.replace(/<script src="js\/sections\.js"><\/script>\s*/, '');
+
+// Strip placeholder comments like "<!-- ... will be loaded dynamically -->"
+// from the final static build so dist/index.html is clean
+html = html.replace(/<!--[\s\S]*?will be loaded dynamically[\s\S]*?-->\s*/gi, '');
 
 // Create dist directory if it doesn't exist
 if (!fs.existsSync('dist')) {
