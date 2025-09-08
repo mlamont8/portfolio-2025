@@ -45,6 +45,12 @@ const assetsToCopy = [
   { src: 'files', dest: 'dist/files' }
 ];
 
+// Copy CNAME file if it exists
+if (fs.existsSync('CNAME')) {
+  fs.copyFileSync('CNAME', 'dist/CNAME');
+  console.log('Copied CNAME file to dist/');
+}
+
 assetsToCopy.forEach(asset => {
   if (fs.existsSync(asset.src)) {
     // Remove existing destination if it exists
