@@ -39,6 +39,24 @@ if (!fs.existsSync('dist')) {
   fs.mkdirSync('dist');
 }
 
+// Copy necessary assets to dist folder
+const assetsToCopy = [
+  { src: 'images', dest: 'dist/images' },
+  { src: 'files', dest: 'dist/files' }
+];
+
+assetsToCopy.forEach(asset => {
+  if (fs.existsSync(asset.src)) {
+    // Remove existing destination if it exists
+    if (fs.existsSync(asset.dest)) {
+      fs.rmSync(asset.dest, { recursive: true, force: true });
+    }
+    // Copy directory recursively
+    fs.cpSync(asset.src, asset.dest, { recursive: true });
+    console.log(`Copied ${asset.src} to ${asset.dest}`);
+  }
+});
+
 // Write the final file
 fs.writeFileSync('dist/index.html', html);
 console.log('Built static HTML file: dist/index.html');
